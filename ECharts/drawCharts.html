@@ -1,2 +1,30 @@
+<!DOCTYPE html>
 <html>
-<\html>
+    <head>
+        <meta charset="utf-8">
+        <script src="lineChart.js"></script>
+        <script src="radarChart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/echarts@5.1.1/dist/echarts.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="main" style="width: 1000px; height: 800px;"></div>
+        <script>
+            var dataPath = 'SYPollution.json';
+            var chartDom = document.getElementById('main');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            $.get(dataPath, function(rawData){
+                var pollutions = ['Pollution1','Pollution2','Pollution3'];
+                var seriesList = [];
+                var datasetWithFilters = [];  
+                echarts.util.each(pollutions, function(pollution)){
+                    //对每个pollution按时间绘图，先不管zoom的问题
+                    var datasetId = 'dataset_' + pollution;
+
+                }  
+            });
+        </script>
+    </body>
+</html>
